@@ -346,20 +346,6 @@ func load() {
 	}
 }
 
-// Returns the relative filename of the Nth (zero-based) asset in a directory.
-func getFilename(dir string, asset int, extension string) string {
-	matcher := dir + "/*." + extension
-	paths, err := filepath.Glob(matcher)
-	if err != nil {
-		panic("(reinaldoaguiar): Could not obtain asset list in " +
-			matcher)
-	}
-	if asset > len(paths)-1 {
-		panic("(reinaldoaguiar): Invalid asset Index.")
-	}
-	return paths[asset]
-}
-
 // loadPNG loads a PNG image from disk and returns it as an *image.RGBA.
 func loadPNG(filename string) *image.RGBA {
 	f, err := os.Open(filename)
